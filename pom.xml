@@ -36,21 +36,21 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>io.openliberty.boost</groupId>
-				<artifactId>boost-maven-plugin</artifactId>
-				<version>0.1</version>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.1.4</version>
+
+
 				<configuration>
-					<repository>gcr.io/devops-331918/${project.artifactId}</repository>
-					<tag>${project.version}</tag>
-					<buildArgs>
-						<JAR-FILE>target/${project.build.finalName}.war</JAR-FILE>
-					</buildArgs>
+					<to>
+						<image>gcr.io/devops-331918/${project.artifactId}</image>
+					</to>
 				</configuration>
 				<executions>
 					<execution>
 						<goals>
-							<goal>docker-build</goal>
-							<goal>docker-push</goal>
+							<goal>build</goal>
+
 						</goals>
 					</execution>
 				</executions>
